@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Folio — Markdown Notes</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ── TOP BAR ── -->
+  <div id="topbar">
+    <div class="logo">folio</div>
+    <div class="divider"></div>
+    <div class="file-tab-bar" id="file-tab-bar"></div>
+    <div class="actions">
+      <button class="topbar-btn" id="btn-export" title="Export as .md">↓ Export</button>
+      <button class="topbar-btn primary" id="btn-new">+ New File</button>
+    </div>
+  </div>
+
+  <!-- ── WORKSPACE ── -->
+  <div id="workspace">
+
+    <!-- Sidebar: file list -->
+    <div id="sidebar">
+      <div id="sidebar-header">
+        <h2>Files</h2>
+        <button id="btn-new-sm" title="New File">+</button>
+      </div>
+      <div id="search-box">
+        <input type="text" id="search-input" placeholder="Search files…">
+      </div>
+      <div id="file-list"></div>
+      <div id="sidebar-footer">
+        <span id="file-count">0 notes</span>
+      </div>
+    </div>
+
+    <!-- Resize handle: sidebar ↔ editor -->
+    <div class="resize-handle" id="rh-1"></div>
+
+    <!-- Editor panel -->
+    <div id="editor-panel">
+      <div class="panel-header">
+        <span class="panel-label">Editor</span>
+        <div class="panel-actions">
+          <button class="panel-btn" id="btn-bold"   title="Bold">B</button>
+          <button class="panel-btn" id="btn-italic" title="Italic"><em>I</em></button>
+          <button class="panel-btn" id="btn-code"   title="Inline Code">`</button>
+          <button class="panel-btn" id="btn-link"   title="Link">⎘</button>
+          <button class="panel-btn" id="btn-h1"     title="Heading 1">H1</button>
+          <button class="panel-btn" id="btn-ul"     title="Bullet List">•</button>
+        </div>
+      </div>
+      <div id="editor-empty" style="display:none;">
+        <p>Open or create a file to start writing</p>
+      </div>
+      <textarea id="editor" spellcheck="false" placeholder="Start writing in Markdown…"></textarea>
+      <div id="editor-status">
+        <span><span class="saved-dot" id="saved-dot"></span> <span id="save-status">Saved</span></span>
+        <span id="word-count">0 words</span>
+        <span id="line-count">0 lines</span>
+        <span id="char-count">0 chars</span>
+      </div>
+    </div>
+
+    <!-- Resize handle: editor ↔ preview -->
+    <div class="resize-handle" id="rh-2"></div>
+
+    <!-- Preview panel -->
+    <div id="preview-panel">
+      <div class="panel-header">
+        <span class="panel-label">Preview</span>
+        <div class="panel-actions">
+          <button class="panel-btn" id="btn-scroll-sync">↕ Sync Scroll</button>
+        </div>
+      </div>
+      <div id="preview">
+        <div class="empty-state" id="preview-empty">
+          <div class="empty-icon">📄</div>
+          <p>Nothing to preview yet</p>
+          <small>Open a file and start writing Markdown</small>
+        </div>
+        <div class="md-body" id="preview-body" style="display:none;"></div>
+      </div>
+    </div>
+
+  </div><!-- /#workspace -->
+
+  <!-- ── RENAME MODAL ── -->
+  <div class="modal-overlay" id="rename-modal">
+    <div class="modal">
+      <h3>Rename File</h3>
+      <input type="text" id="rename-input" placeholder="filename.md">
+      <div class="modal-actions">
+        <button class="modal-btn" id="rename-cancel">Cancel</button>
+        <button class="modal-btn primary" id="rename-confirm">Rename</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Markdown parser -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+  <!-- App logic (loaded after DOM is ready) -->
+  <script src="app.js"></script>
+
+</body>
+</html>
