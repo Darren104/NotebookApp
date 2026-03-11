@@ -1,6 +1,6 @@
 # 1. Project Used
 
-Out of the three projects, I decided to go with first project "The Notebook, Multi-File Markdown editor. 
+Out of the three projects, I decided to go with first project "The Notebook, Multi-File Markdown editor". 
 
 # 2. Tools used
 
