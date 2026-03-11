@@ -38,3 +38,6 @@ Another challenge was understanding how notes were stored and
 retrieved using localStorage. Additional prompts were used to
 clarify the implementation to ensure the logic was fully
 understood before making further improvements.
+
+# 7. Deployment URL
+https://darren104.github.io/NotebookApp/
